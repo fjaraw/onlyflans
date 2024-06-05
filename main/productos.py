@@ -1,7 +1,7 @@
 productos = [
         {'id': 1,
         'nombre': 'Flan borracho',
-        'descripcion': 'Postre a base de pan frío',
+        'descripcion': 'Postre a base de leche y ron',
         'imagen_url': 'https://mojo.generalmills.com/api/public/content/nVkc4H0aVkCcWbegp426XA_gmi_hi_res_jpeg.jpeg',
         'precio': 3000},
         {'id': 2,
