@@ -2,4 +2,16 @@
 
 {% block content %}
     <h1>Bienvenido cliente</h1>
+    <form>
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre">
+        <label for="email" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="email">
+        <div class="mb-3 pt-2">
+            <label for="mensaje">Mensaje:</label>
+            <textarea class="form-control" rows="5" id="mensaje" name="text"></textarea>
+        </div>
+        <button id="btnEnviar" data-bs-toggle="tooltip" data-bs-placement="right"
+            data-bs-title="Haz clic para enviar tu mensaje" type="button" class="btn">Enviar</button>
+    </form>
 {% endblock %}
