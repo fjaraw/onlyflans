@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container my-3"><h1>Bienvenido cliente</h1>
-        <form>
-            <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre">
-            <label for="email" class="form-label">Correo</label>
-            <input type="email" class="form-control" id="email">
+    <div class="container my-3">
+        <h1>Bienvenido cliente</h1>
+        {% for msje in errores %}
+            <div class="alert alert-danger" role="alert">{{ msje }}</div>
+        {% endfor %}
+        </h1>
+        <p>Escríbanos ante cualquier consulta.</p>
+        <form action="/welcome/" method="post">
+            {% csrf_token %}
+            <!--
+            {% csrf_token %}
+            <label for="customer_name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="customer_name">
+            <label for="customer_email" class="form-label">Correo</label>
+            <input type="text" class="form-control" name="customer_email">
             <div class="mb-3 pt-2">
-                <label for="mensaje">Mensaje:</label>
-                <textarea class="form-control" rows="5" id="mensaje" name="text"></textarea>
+                <label for="message">Mensaje:</label>
+                <textarea class="form-control" rows="5" name="message" name="text"></textarea>
             </div>
-            <button id="btnEnviar" type="button" class="btn btn-success">Enviar</button>
+            -->
+            {{form}}
+            <button id="btnEnviar" type="submit" class="btn btn-success">Enviar</button>
         </form>
     </div>
 {% endblock %}
