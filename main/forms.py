@@ -1,6 +1,6 @@
 from django import forms
 
-class FlanForm(forms.Form):
+class ContactForm(forms.Form):
     nombre = forms.CharField(
         max_length=64,
         widget=forms.TextInput(attrs={'class': 'form-control'})
@@ -11,6 +11,7 @@ class FlanForm(forms.Form):
         widget=forms.EmailInput(attrs={'class': 'form-control'})
     )
     mensaje = forms.CharField(
+        max_length=64,
         required=False,
         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4})
     )

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from main.productos import productos
-from main.forms import FlanForm
+from main.forms import ContactForm
+from main.models import Contact
 
 # Create your views here.
 def index(req):
@@ -11,12 +12,16 @@ def about(req):
     return render(req, 'about.html')
 def welcome(req):
     if req.method == 'GET':
-        form = FlanForm()
+        form = ContactForm()
         context = {'form': form}
         return render(req, 'welcome.html', context)
     else:
-        form = FlanForm(req.POST)
+        form = ContactForm(req.POST)
         if form.is_valid():
+            # Esta es la forma de pedirle a un modelo que cree un registro usando los datos de un formulario
+            Contact.objects.create(
+                **form.cleaned_data
+            )
             return redirect('/success')
         context = {'form': form}
         return render(req, 'welcome.html', context)
