@@ -1,4 +1,5 @@
-productos = [
+#Diccionario de flanes
+flanes = [
         {'id': 1,
         'nombre': 'Flan borracho',
         'descripcion': 'Postre a base de leche y ron',

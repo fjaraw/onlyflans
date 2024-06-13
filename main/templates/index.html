@@ -6,17 +6,17 @@
         Lista de Productos
     </h3>
     <div class="row">
-        {%for producto in productos %}
+        {%for flan in flanes_publicos %}
             <div class="col-3">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{producto.imagen_url}}" class="card-img-top" alt="...">
+                    <img src="{{flan.imagen_url}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{producto.nombre}}</h5>
-                        <p class="card-text">{{producto.descripcion}}</p>
+                        <h5 class="card-title">{{flan.nombre}}</h5>
+                        <p class="card-text">{{flan.descripcion}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">OFERTA</li>
-                        <li class="list-group-item">{{producto.precio}}</li>
+                        <li class="list-group-item">FLAN PÚBLICO</li>
+                        <li class="list-group-item">{{flan.precio}}</li>
                     </ul>
                     <div class="card-body">
                         <a href="#" class="card-link">Pedir</a>
