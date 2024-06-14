@@ -6,7 +6,7 @@
         {% if form.errors %}
             <div class="row">
                 <div class="col-4 offset-4">
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
                         <strong>Usuario y contraseña no coinciden. Intentalo de nuevo.</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
