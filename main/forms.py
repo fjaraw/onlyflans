@@ -15,3 +15,9 @@ class ContactForm(forms.Form):
         required=False,
         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 4})
     )
+
+class RegisterForm(forms.Form):
+    username = forms.CharField()
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput())
+    passRepeat = forms.CharField(widget=forms.PasswordInput())

@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 #from main.flanes import flanes
-from main.forms import ContactForm
+from main.forms import ContactForm, RegisterForm
 from main.models import Contact, Flan
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 class LoginViewPropia(SuccessMessageMixin, LoginView):
     success_message = "Has ingresado correctamente"
@@ -46,4 +48,17 @@ def success(req):
 # def login(req):
 #     return render(req, 'login.html')
 def register(req):
-    return render(req, 'register.html')
+    #return render(req, 'register.html')
+    form = RegisterForm()
+    context = {'form': form}
+    if req.method == 'GET':
+        return render(req, 'registration/register.html', context)
+    form = RegisterForm(req.POST)
+    if form.is_valid():
+        data = form.cleaned_data
+        if data['password'] != data['passRepeat']:
+            messages.warning(req, "Deben coincidir las contraseñas!")
+            return redirect('/accounts/register/')
+        User.objects.create_user(data['username'], data['email'], data['password'])
+        messages.success(req, "Usuario registrado con éxito!")
+    return redirect('/')
