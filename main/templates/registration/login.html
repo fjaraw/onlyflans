@@ -17,7 +17,7 @@
             <form action="{% url 'login' %}" method="post">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label class="form-label">Ingresa tu usuario:</label>
+                    <label class="form-label">Ingresa tu nombre de usuario:</label>
                     <input type="text" class="form-control" name="{{ form.username.name }}" required>
                 </div>
                 <div class="mb-3">

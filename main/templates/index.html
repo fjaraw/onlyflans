@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
 
+{% block css %}
+    <style>
+        /* Efecto mouse */
+        .card {
+            transition: transform 0.6s ease; /* Transición suave */
+        }
+        .card:hover {
+            transform: scale(1.05); /* Aumenta el tamaño al 110% */
+        }
+        .card:hover .card-title {
+            color: darkgreen; /* Cambiar color del nombre */
+        }
+        /*
+        .card:hover .card-title {
+            color: rgb(117, 123, 208); 
+        }
+        .card:hover .list-group-item {
+            font-weight: bold;
+        }*/
+        /* Hacer el precio en negrita */
+        /*
+        ::placeholder{
+            font-style: italic;
+        }
+        */
+    </style>
+{% endblock %}
+    
 {% block content %}
 <div class="container my-2">
     <h3 class="text-center text-primary">
@@ -9,7 +37,7 @@
         {%for flan in flanes_publicos %}
             <div class="col-3">
                 <div class="card" style="width: 18rem;">
-                    <img src="{{flan.imagen_url}}" class="card-img-top" alt="...">
+                    <img src="{{flan.imagen_url}}" class="card-img-top hover-shadow" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{flan.nombre}}</h5>
                         <p class="card-text">{{flan.descripcion}}</p>
