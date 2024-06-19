@@ -38,9 +38,11 @@ def contact(req):
 
 @login_required
 def welcome(req):
+    #muestra todos los flanes de la BDD
+    flanes = Flan.objects.all()
     #muestra solo los productos privados de la BDD
-    flanes_publicos = Flan.objects.filter(is_private=True)
-    context = {'flanes_publicos': flanes_publicos}
+    #flanes_publicos = Flan.objects.filter(is_private=True)
+    context = {'flanes': flanes}
     return render(req, 'welcome.html', context)
 
 def success(req):
